@@ -8,11 +8,51 @@ Gráfica de Barras para Series de Tiempo
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 Gráfica de barras para series de tiempo con el formato correspondiente a la
-Administración Pública Federal de México en el sexenio 2024-2030. Para uso interno
-de la Agencia de Transformación Digital y Telecomunicaciones.
+Administración Pública Federal de México en el sexenio 2024-2030.
 }
 \usage{
-graph_tsbar(x, y, ...)
+graph_tsbar <- function(
+    x, # Objeto de fechas
+    y, # Objeto de niveles
+    export=FALSE, # Si se exporta o no
+    path=NA, # Dirección del archivo a exportar
+    formato=NA, # Formato del archivo a exportar (pdf o png)
+    size=c(8,4.5), # Tamaño en pulgadas
+    cxlims = c(as.Date(min(x)), as.Date(max(x))), # Límites del eje x
+    intervalo, # Frecuencia de los datos (week, month, year, day)
+    color, # Vector de colores
+    date.format=NULL, # Formato de las etiquetas del eje x
+    x.lab=format(seq.Date(as.Date(cxlims[1]), as.Date(cxlims[2]), by=intervalo), date.format), # Etiquetas del eje x
+    y.lab=NULL, # Etiquetas del eje y
+    grid=FALSE, # Opción para añadir una grid detrás de la gráfica
+    margins=c(6,6,0,0), # Margenes de la gráfica
+    lab.font="bold", # Tipo de letra para las labels de x y y (bold, regular, italic, italic-bold)
+    xlab.font=lab.font, # Tipo de letra para las labels de x
+    ylab.font=lab.font, # Tipo de letra para las labels de y
+    family="MontserratRoman-Bold", # Familia de texto
+    ymain=NA, # Título del eje y
+    xmain=NA, # Título del eje x
+    main.cex=1.2, # Tamaño de los títulos de los ejes x y y
+    xmain.cex=main.cex, # Tamaño de los títulos del eje x
+    ymain.cex=main.cex, # Tamaño de los títulos del eje y
+    dist=2.5, # Distancia de los títulos desde el eje x y y
+    xdist=dist, # Distancia del título al eje x
+    ydist=dist+1, # Distancia del título al eje y
+    main.font="bold", # Tipo de letra para los titulos de x y y (bold, regular, italic, italic-bold)
+    ymain.font=main.font, # Tipo de letra para el título de y
+    xmain.font=main.font, # Tipo de letra para el título de x
+    y.ticks=NULL, # Posición de los breaks en el eje y
+    lwd.axis=2, # Ancho de línea del eje
+    etiquetas=FALSE, # Etiquetas encima de las barras
+    etiquetas.cex=0.8, # Tamaño de las etiquetas encima de las barras
+    ylim=c(min(0, min(y)*1.1), max(y)*1.1), # Límites del eje y
+    division=FALSE, # División en las barras
+    fechas.div=NA, # Fechas en dónde marcar la división
+    evento=FALSE, # Evento a analizar
+    fechas.ev=fechas.div, # Fecha de los eventos, por defecto, la fecha de la división
+    axis.col="gray25", # Color del eje
+    sep=0.05*min(y), # Separación entre la observación y la etiqueta.
+    ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
