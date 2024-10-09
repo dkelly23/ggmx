@@ -1,0 +1,10 @@
+Package: ggmx
+Type: Package
+Title: Geometría MX
+Version: 0.1.0
+Author: Daniel Kelly
+Maintainer: Daniel Kelly <djsanchez@colmex.mx>
+Description: Gráficas en formato oficial.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
