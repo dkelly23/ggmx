@@ -1,8 +1,6 @@
 require(tidyverse)
 require(sysfonts)
 
-sysfonts::font_add_google("Montserrat")
-
 graph_tsline <- function(
     x, # Objeto de fechas
     y, # Objeto de niveles
@@ -48,6 +46,8 @@ graph_tsline <- function(
     lty=1, # Tipo de linea
     pch=16, # Forma de los puntos
     points.cex=1, # Tamaño de los puntos
+    sep=0.05*min(y), # Separación entre la observación y la etiqueta.
+    posc=NULL,
     ...)
 
 {
@@ -250,7 +250,14 @@ graph_tsline <- function(
   }
 
   if (etiquetas==TRUE){
-    text(x, y+0.05*max(y)*posicion, labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+    if (is.null(posc)) {
+      text(x, y+sep*posicion, labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+    } else if (posc=="up") {
+      text(x, y+sep, labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+    } else if (posc=="down") {
+      text(x, y+sep*(-1), labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+    }
+
   }
 
   if (evento==TRUE){
@@ -284,11 +291,11 @@ graph_tsline <- function(
   )
 
   if (!is.na(xmain) && xmain!='') {
-    mtext(xmain, side=2, line=xdist, font=xmain.font, cex=xmain.cex)
+    mtext(xmain, side=1, line=xdist, font=xmain.font, cex=xmain.cex)
   }
 
   if (!is.na(ymain) && ymain!='') {
-    mtext(ymain, side=1, line=ydist, font=ymain.font, cex=ymain.cex)
+    mtext(ymain, side=2, line=ydist, font=ymain.font, cex=ymain.cex)
   }
 
 }

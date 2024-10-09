@@ -1,8 +1,6 @@
 require(tidyverse)
 require(sysfonts)
 
-sysfonts::font_add_google("Montserrat")
-
 graph_tsbar <- function(
     x, # Objeto de fechas
     y, # Objeto de niveles
@@ -43,6 +41,7 @@ graph_tsbar <- function(
     evento=FALSE, # Evento a analizar
     fechas.ev=fechas.div, # Fecha de los eventos, por defecto, la fecha de la división
     axis.col="gray25", # Color del eje
+    sep=0.05*min(y), # Separación entre la observación y la etiqueta.
     ...)
 
 {
@@ -215,7 +214,7 @@ graph_tsbar <- function(
   }
 
   if (etiquetas==TRUE){
-    text(x+ancho/2, y+0.05*min(y), labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+    text(x+ancho/2, y+sep, labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
   }
 
   separacion <- case_when(
@@ -255,11 +254,11 @@ graph_tsbar <- function(
   )
 
   if (!is.na(xmain) && xmain!='') {
-    mtext(xmain, side=2, line=xdist, font=xmain.font, cex=xmain.cex)
+    mtext(xmain, side=1, line=xdist, font=xmain.font, cex=xmain.cex)
   }
 
   if (!is.na(ymain) && ymain!='') {
-    mtext(ymain, side=1, line=ydist, font=ymain.font, cex=ymain.cex)
+    mtext(ymain, side=2, line=ydist, font=ymain.font, cex=ymain.cex)
   }
 
 }
