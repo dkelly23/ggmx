@@ -42,6 +42,9 @@ graph_tsbar <- function(
     fechas.ev=fechas.div, # Fecha de los eventos, por defecto, la fecha de la división
     axis.col="gray25", # Color del eje
     sep=0.05*min(y), # Separación entre la observación y la etiqueta.
+    cex.lab=0.8,
+    cex.ylab=cex.lab,
+    cex.xlab=cex.lab,
     ...)
 
 {
@@ -150,9 +153,10 @@ graph_tsbar <- function(
   }
 
   xticks <- axis.Date(1, x=x, at=seq.Date(as.Date(cxlims[1]), as.Date(cxlims[2]), by=intervalo), labels=x.lab,
-                      lwd=lwd.axis, tck=0, col=axis.col, col.axis=axis.col, font=xlab.font, ...)
+                      lwd=lwd.axis, tck=0, col=axis.col, col.axis=axis.col, font=xlab.font,  cex.axis=cex.xlab, ...)
 
-  yticks <- axis(2, at=y.ticks, labels=y.lab, lwd=lwd.axis, lwd.tick=2, tck=0.02, col = axis.col, col.axis=axis.col, font=ylab.font, ...)
+  yticks <- axis(2, at=y.ticks, labels=y.lab, lwd=lwd.axis, lwd.tick=2, tck=0.02, col = axis.col, col.axis=axis.col,
+                 font=ylab.font, cex.axis=cex.ylab, ...)
 
   if (grid==TRUE) {
     abline( h=yticks , lty=3 , lw=0.7)
