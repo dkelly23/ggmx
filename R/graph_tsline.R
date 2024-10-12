@@ -76,10 +76,10 @@ graph_tsline <- function(
     }
   }
 
-  if (!intervalo %in% c("week", "month", "year", "day")) {
-    stop("El intervalo para graficar no está definido, debe ser
-         'week', 'month', 'year', 'day'.")
-  }
+#  if (!intervalo %in% c("week", "month", "year", "day")) {
+#    stop("El intervalo para graficar no está definido, debe ser
+#         'week', 'month', 'year', 'day'.")
+#  }
 
   fonts <- c("lab.font", "xlab.font", "ylab.font",
              "main.font", "xmain.font", "ymain.font")
