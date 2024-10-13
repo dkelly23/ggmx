@@ -10,53 +10,57 @@ Administración Pública Federal de México en el sexenio 2024-2030.
 }
 \usage{
 graph_tsline <- function(
-    x, # Objeto de fechas
-    y, # Objeto de niveles
-    export=FALSE, # Si se exporta o no
-    path=NA, # Dirección del archivo a exportar
-    formato=NA, # Formato del archivo a exportar (pdf o png)
-    size=c(8,4.5), # Tamaño en pulgadas
-    cxlims = c(as.Date(min(x)), as.Date(max(x))), # Límites del eje x
-    intervalo, # Frecuencia de los datos (week, month, year, day)
-    color, # Vector de colores
-    date.format=NULL, # Formato de las etiquetas del eje x
-    x.lab=format(seq.Date(as.Date(cxlims[1]), as.Date(cxlims[2]), by=intervalo), date.format), # Etiquetas del eje x
-    y.lab=NULL, # Etiquetas del eje y
-    grid=FALSE, # Opción para añadir una grid detrás de la gráfica
-    margins=c(6,6,0,0), # Margenes de la gráfica
-    lab.font="bold", # Tipo de letra para las labels de x y y (bold, regular, italic, italic-bold)
-    xlab.font=lab.font, # Tipo de letra para las labels de x
-    ylab.font=lab.font, # Tipo de letra para las labels de y
-    family="MontserratRoman-Bold", # Familia de texto
-    ymain=NA, # Título del eje y
-    xmain=NA, # Título del eje x
-    main.cex=1.2, # Tamaño de los títulos de los ejes x y y
-    xmain.cex=main.cex, # Tamaño de los títulos del eje x
-    ymain.cex=main.cex, # Tamaño de los títulos del eje y
-    dist=2.5, # Distancia de los títulos desde el eje x y y
-    xdist=dist, # Distancia del título al eje x
-    ydist=dist+1, # Distancia del título al eje y
-    main.font="bold", # Tipo de letra para los titulos de x y y (bold, regular, italic, italic-bold)
-    ymain.font=main.font, # Tipo de letra para el título de y
-    xmain.font=main.font, # Tipo de letra para el título de x
-    y.ticks=NULL, # Posición de los breaks en el eje y
-    lwd.axis=2, # Ancho de línea del eje
-    etiquetas=FALSE, # Etiquetas encima de las barras
-    etiquetas.cex=0.8, # Tamaño de las etiquetas encima de las barras
-    ylim=c(min(0, min(y)*1.1), max(y)*1.1), # Límites del eje y
-    division=FALSE, # División en las barras
-    fechas.div=NA, # Fechas en dónde marcar la división
-    evento=FALSE, # Evento a analizar
-    fechas.ev=fechas.div, # Fecha de los eventos, por defecto, la fecha de la división
-    axis.col="gray25", # Color del eje
-    points=TRUE, # Se grafican o no puntos
-    lwd=2, # Ancho de gráfica
-    lty=1, # Tipo de linea
-    pch=16, # Forma de los puntos
-    points.cex=1, # Tamaño de los puntos
-    sep=0.05*min(y), # Separación entre la observación y la etiqueta.
-    posc=NULL,
-    ...)
+    x,
+    y,
+    intervalo,
+    color,
+    export = FALSE,
+    path = NA,
+    formato = NA,
+    size = c(8, 4.5),
+    cxlims = c(as.Date(min(x)), as.Date(max(x))),
+    date.format = "\%d-\%b-\%Y",
+    x.lab = format(seq.Date(as.Date(cxlims[1]), as.Date(cxlims[2]), by = intervalo), date.format),
+    y.lab = NULL,
+    grid = FALSE,
+    margins = c(6, 6, 0, 0),
+    lab.font = "bold",
+    xlab.font = lab.font,
+    ylab.font = lab.font,
+    family = "MontserratRoman-Bold",
+    ymain = NA,
+    xmain = NA,
+    main.cex = 1.2,
+    xmain.cex = main.cex,
+    ymain.cex = main.cex,
+    dist = 2.5,
+    xdist = dist,
+    ydist = dist + 1,
+    main.font = "bold",
+    ymain.font = main.font,
+    xmain.font = main.font,
+    y.ticks = NULL,
+    lwd.axis = 2,
+    etiquetas = FALSE,
+    etiquetas.cex = 0.8,
+    ylim = c(min(0, min(y) * 1.1), max(y) * 1.1),
+    division = FALSE,
+    fechas.div = NA,
+    evento = FALSE,
+    fechas.ev = fechas.div,
+    axis.col = "gray25",
+    points = TRUE,
+    lwd = 2,
+    lty = 1,
+    pch = 16,
+    points.cex = 1,
+    sep = 0.05 * min(y),
+    posc = NULL,
+    cex.lab = 0.8,
+    cex.ylab = cex.lab,
+    cex.xlab = cex.lab,
+    ...
+)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -104,6 +108,9 @@ graph_tsline <- function(
 \item{lty}{Tipo de línea utilizada en la gráfica. Por defecto, es 1.}
 \item{pch}{Forma de los puntos en la gráfica. Por defecto, es 16.}
 \item{points.cex}{Tamaño de los puntos en la gráfica. Por defecto, es 1.}
+\item{sep}{Separación entre la línea y la etiqueta que indica su valor. Debe proporcionarse
+si \code{etiquetas=TRUE}.}
+\item{posc}{}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~

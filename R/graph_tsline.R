@@ -4,13 +4,13 @@ require(sysfonts)
 graph_tsline <- function(
     x, # Objeto de fechas
     y, # Objeto de niveles
+    intervalo, # Frecuencia de los datos (week, month, year, day)
+    color, # Vector de colores
     export=FALSE, # Si se exporta o no
     path=NA, # Dirección del archivo a exportar
     formato=NA, # Formato del archivo a exportar (pdf o png)
     size=c(8,4.5), # Tamaño en pulgadas
     cxlims = c(as.Date(min(x)), as.Date(max(x))), # Límites del eje x
-    intervalo, # Frecuencia de los datos (week, month, year, day)
-    color, # Vector de colores
     date.format="%d-%b-%Y", # Formato de las etiquetas del eje x
     x.lab=format(seq.Date(as.Date(cxlims[1]), as.Date(cxlims[2]), by=intervalo), date.format), # Etiquetas del eje x
     y.lab=NULL, # Etiquetas del eje y
@@ -47,12 +47,11 @@ graph_tsline <- function(
     pch=16, # Forma de los puntos
     points.cex=1, # Tamaño de los puntos
     sep=0.05*min(y), # Separación entre la observación y la etiqueta.
-    posc=NULL,
-    cex.lab=0.8,
-    cex.ylab=cex.lab,
-    cex.xlab=cex.lab,
+    posc=NULL, # Posición de las etiquetas respecto a la línea.
+    cex.lab=0.8, # Tamaño de las labels.
+    cex.ylab=cex.lab, # Tamaño de las labels del eje y.
+    cex.xlab=cex.lab, # Tamaño de las labels del eje x.
     ...)
-
 {
 
   if (export==TRUE) {
