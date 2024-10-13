@@ -61,19 +61,19 @@ graph_tsbar <- function(
  \item{export}{Lógico que indica si la gráfica se exporta.}
  \item{path}{Ruta dónde se exporta el archivo. Debe proporcionarse si \code{export=TRUE}.}
  \item{formato}{Formato del archivo a exportar, puede ser \code{png} o \code{pdf}.}
- \item{size}{Un vector numérico de longitud 2 que define el tamaño en pulgadas del gráfico \code{c(ancho, alto)}.}
+ \item{size}{Un vector numérico de longitud 2 que define el tamaño en pulgadas del gráfico con el formato: \code{c(ancho, alto)}.}
  \item{cxlims}{Límites del eje \code{x}, definidos como un vector de fechas \code{c(min, max)}.}
- \item{intervalo}{Frecuencia de los datos. Debe ser uno de \code{c("week", "month", "year" o "day")}.}
- \item{color}{Un vector de colores para las líneas o barras del gráfico.}
+ \item{intervalo}{Frecuencia de los datos. Puede ser \code{"week", "month", "year" o "day"}.}
+ \item{color}{Un vector de colores para las barras del gráfico.}
  \item{date.format}{Formato de las etiquetas del eje \code{x}. Por defecto, es \code{\%d-\%b-\%Y}.}
  \item{x.lab}{Etiquetas del eje \code{x}. Por defacto es una secuencia de fechas definida por
  \code{cxlims}, de acuerdo con \code{intervalo}.}
  \item{y.lab}{Etiquetas del eje \code{y}. Por defecto, es \code{NULL}.}
  \item{grid}{Variable lógica que indica si se debe graficar una cuadrícula detrás de la
  gráfica. Por defecto es \code{FALSE}.}
- \item{margins}{Dimensiones de los márgenes de la gráfica, especificados como un vector de longitud 4 \code{c(superior, derecho, inferior, izquierdo)}. Por defecto es
+ \item{margins}{Dimensiones de los márgenes de la gráfica, especificados como un vector de longitud 4 con el formato: \code{c(superior, izquierdo, inferior, derecho)}. Por defecto es
  \code{c(6,6,0,0)}.}
- \item{lab.font}{Tipo de letra para las etiquetas de los ejes \code{x} y \code{y}. Debe ser uno de \code{("bold", "regular", "italic", "italic-bold")}.}
+ \item{lab.font}{Tipo de letra para las etiquetas de los ejes \code{x} y \code{y}. Puede ser \code{"bold", "regular", "italic", "italic-bold"}.}
  \item{xlab.font}{Tipo de letra para las etiquetas del eje \code{x}. Por defecto, es igual a \code{lab.font}.}
  \item{ylab.font}{Tipo de letra para las etiquetas del eje \code{y}. Por defecto, es igual a \code{lab.font}.}
  \item{family}{Familia tipográfica para el texto. Por defecto, es \code{Montserrat}.}
@@ -85,7 +85,7 @@ graph_tsbar <- function(
  \item{dist}{Distancia de los títulos desde el eje \code{x} y \code{y}. Por defecto, es \code{2.5}.}
  \item{xdist}{Distancia del título al eje \code{x}. Por defecto, es igual a \code{dist}.}
  \item{ydist}{Distancia del título al eje \code{y}. Por defecto, es \code{dist + 1}.}
- \item{main.font}{Tipo de letra para los títulos de los ejes \code{x} e \code{y}. Debe ser uno de \code{c("bold", "regular", "italic", "italic-bold")}.}
+ \item{main.font}{Tipo de letra para los títulos de los ejes \code{x} e \code{y}. Debe ser uno de \code{"bold", "regular", "italic", "italic-bold"}.}
  \item{ymain.font}{Tipo de letra para el título del eje \code{y}. Por defecto, igual a \code{main.font}.}
  \item{xmain.font}{Tipo de letra para el título del eje \code{x}. Por defecto, igual a \code{main.font}.}
  \item{y.ticks}{Posición de los breaks en el eje \code{y}. Por defecto, es igual a \code{NULL}.}
@@ -103,13 +103,15 @@ graph_tsbar <- function(
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-Un gráfico generado en la salida gráfica o un archivo exportado, dependiendo del argumento export.
+Un gráfico generado en la salida gráfica o un archivo exportado, dependiendo del argumento \code{export}.
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-Daniel Kelly
+Daniel Kelly \\
+djsanchez@colmex.mx \\
+github.com/dkelly23
 }
 \note{
 %%  ~~further notes~~

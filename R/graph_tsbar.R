@@ -42,9 +42,9 @@ graph_tsbar <- function(
     fechas.ev=fechas.div, # Fecha de los eventos, por defecto, la fecha de la división
     axis.col="gray25", # Color del eje
     sep=0.05*min(y), # Separación entre la observación y la etiqueta.
-    cex.lab=0.8,
-    cex.ylab=cex.lab,
-    cex.xlab=cex.lab,
+    cex.lab=0.8, # Tamaño de las etiquetas de los ejes.
+    cex.ylab=cex.lab, # Tamaño de las etiquetas del eje y.
+    cex.xlab=cex.lab, # Tamañod de las etiquetas del eje x.
     ...)
 
 {
