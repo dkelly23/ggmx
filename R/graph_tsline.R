@@ -51,6 +51,7 @@ graph_tsline <- function(
     cex.lab=0.8, # Tamaño de las labels.
     cex.ylab=cex.lab, # Tamaño de las labels del eje y.
     cex.xlab=cex.lab, # Tamaño de las labels del eje x.
+    box=TRUE, # Debe dibujarse una caja.
     ...)
 {
 
@@ -273,7 +274,9 @@ graph_tsline <- function(
     }
   }
 
-  box(lwd=lwd.axis, col=axis.col)
+  if (box==TRUE) {
+    box(lwd=lwd.axis, col=axis.col)
+  }
 
   if (export==TRUE) {
     dev.off()
