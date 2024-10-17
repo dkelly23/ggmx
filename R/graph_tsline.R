@@ -255,11 +255,11 @@ graph_tsline <- function(
 
   if (etiquetas==TRUE){
     if (is.null(posc)) {
-      text(x, y+sep*posicion, labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+      text(x, y+sep*posicion, labels=round(y,1), cex=etiquetas.cex, col="black", font=2)
     } else if (posc=="up") {
-      text(x, y+sep, labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+      text(x, y+sep, labels=round(y,1), cex=etiquetas.cex, col="black", font=2)
     } else if (posc=="down") {
-      text(x, y+sep*(-1), labels=round(y,0), cex=etiquetas.cex, col="black", font=2)
+      text(x, y+sep*(-1), labels=round(y,1), cex=etiquetas.cex, col="black", font=2)
     }
 
   }
