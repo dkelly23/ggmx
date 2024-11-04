@@ -51,6 +51,7 @@ graph_tsline <- function(
     cex.lab=1, # Tamaño de las labels.
     cex.ylab=cex.lab, # Tamaño de las labels del eje y.
     cex.xlab=cex.lab, # Tamaño de las labels del eje x.
+    mfrow=c(1,1)
     ...)
 {
 
@@ -139,7 +140,7 @@ graph_tsline <- function(
     stop("'margins' debe contener 4 elementos.")
   }
 
-  par(mar=margins, mfrow=c(1,1), family=family)
+  par(mar=margins, mfrow=c(1,1), family=family, mfrow=mfrow)
 
   if (!is.Date(x)) {
     stop("El vector 'x' debe ser un objeto de fechas.")
@@ -161,7 +162,7 @@ graph_tsline <- function(
                       lwd=lwd.axis, tck=0, col=axis.col, col.axis=axis.col, font=xlab.font, cex.axis=cex.xlab, ...)
 
   yticks <- axis(2, at=y.ticks, labels=y.lab, lwd=lwd.axis, lwd.tick=2, tck=0.02, col = axis.col, col.axis=axis.col,
-                 font=ylab.font, cex.lab=cex.ylab, ...)
+                 font=ylab.font, cex.axis=cex.ylab, ...)
 
   if (grid==TRUE) {
     abline( h=yticks , lty=3 , lw=0.7)
@@ -283,7 +284,7 @@ graph_tsline <- function(
        )
 
   axis(2,
-       at=c(-1000, max(y)+10000),
+       at=c(-10000000, max(y)+1000000000),
        lwd=lwd.axis, lwd.tick=2, tck=0.02, col = axis.col, col.axis=axis.col
        )
 
