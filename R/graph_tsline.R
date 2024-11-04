@@ -48,10 +48,9 @@ graph_tsline <- function(
     points.cex=1, # Tamaño de los puntos
     sep=0.05*min(y), # Separación entre la observación y la etiqueta.
     posc=NULL, # Posición de las etiquetas respecto a la línea.
-    cex.lab=0.8, # Tamaño de las labels.
+    cex.lab=1, # Tamaño de las labels.
     cex.ylab=cex.lab, # Tamaño de las labels del eje y.
     cex.xlab=cex.lab, # Tamaño de las labels del eje x.
-    box=TRUE, # Debe dibujarse una caja.
     ...)
 {
 
@@ -274,9 +273,19 @@ graph_tsline <- function(
     }
   }
 
-  if (box==TRUE) {
-    box(lwd=lwd.axis, col=axis.col)
-  }
+#  if (box==TRUE) {
+#    box(lwd=lwd.axis, col=axis.col)
+#  }
+
+  axis(1,
+       at=c(min(x)-1000, max(x)+1000),
+       lwd=lwd.axis, lwd.tick=2, tck=0.02, col = axis.col, col.axis=axis.col
+       )
+
+  axis(2,
+       at=c(-1000, max(y)+10000),
+       lwd=lwd.axis, lwd.tick=2, tck=0.02, col = axis.col, col.axis=axis.col
+       )
 
   if (export==TRUE) {
     dev.off()
