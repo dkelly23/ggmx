@@ -51,7 +51,7 @@ graph_tsline <- function(
     cex.lab=1, # Tamaño de las labels.
     cex.ylab=cex.lab, # Tamaño de las labels del eje y.
     cex.xlab=cex.lab, # Tamaño de las labels del eje x.
-    mfrow=c(1,1)
+    mfrow=c(1,1),
     ...)
 {
 
